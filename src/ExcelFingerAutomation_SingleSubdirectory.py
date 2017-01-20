@@ -114,10 +114,10 @@ def main():
             if files.endswith('fingerMeasurements.xls') or files.endswith('fingerMeasurements.xlsx'):
                 measurement_filePath = str(subfolder) + "\\" + str(files)
                 
-			elif files.endswith('deformity.xls') or files.endswith('deformity.xlsx'):
-				deformity_filePath = str(subfolder) + '\\' + str(files)
+            elif files.endswith('deformity.xls') or files.endswith('deformity.xlsx'):
+                deformity_filePath = str(subfolder) + '\\' + str(files)
 				    
             excelOperations(measurement_filePath, deformity_filePath, subfolder, compiledDataDestination, row)
-			row = row+1
+                row = row+1
 
 main()
