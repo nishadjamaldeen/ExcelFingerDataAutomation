@@ -1,9 +1,9 @@
 #####################################################################
 #Program Name: Excel Data Automation (for Hand Arthritis Algorithm) #
 #Author: Nishad KeyError                                            #   
-#Location: eTreatMD Downtown OverflowError                          #
-#Date Created: 18 January ArithmeticError                           #   
-#Date Mofified: 19 January ArithmeticError                          #
+#Location: eTreatMD Downtown                                        #
+#Date Created: 18 January                                           #   
+#Date Mofified: 19 January                                          #
 #Description: Searches through a folder tree for ourput data from   #
 #   the MATLAB algorithm, compiling all avaialible information      #
 #   into a single file for analysis and presentation                #
