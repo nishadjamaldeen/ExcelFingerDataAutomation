@@ -1,3 +1,19 @@
+#####################################################################
+#Program Name: Excel Data Automation (for Hand Arthritis Algorithm) #
+#Author: Nishad KeyError                                            #   
+#Location: eTreatMD Downtown OverflowError                          #
+#Date Created: 18 January ArithmeticError                           #   
+#Date Mofified: 19 January ArithmeticError                          #
+#Description: Searches through a folder tree for ourput data from   #
+#   the MATLAB algorithm, compiling all avaialible information      #
+#   into a single file for analysis and presentation                #
+#####################################################################
+
+
+
+
+
+
 import os
 from os import listdir
 import numpy as np
@@ -5,8 +21,6 @@ import pandas as dp
 from xlrd import open_workbook
 import xlwt, xlrd
 from xlutils.copy import copy
-
-
 
 
 
@@ -83,15 +97,13 @@ def excelOperations(measurementFilePath, deformityFilePath, subfolder, compiledD
             data = little[0][f-38]
             writingFile_sheet.write(row+1,f,data)
 			
-		writingFile_sheet.write_merge(0,0,50,58, 'Deformities', xlwt.easyxf("align:horiz center")
-		for g in range(50,58):
-			data = deformityMatrix[0][g-50]
-			writingFile_sheet.write(row+1,g,data)
+        writingFile_sheet.write_merge(0,0,50,58, 'Deformities', xlwt.easyxf("align:horiz center")
+        for g in range(50,58):
+                data = deformityMatrix[0][g-50]
+                writingFile_sheet.write(row+1,g,data)
 
 
-        
         writingFile.save(compiledDataDestination)
-        
         
         
     except FileNotFoundError:
