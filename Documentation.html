@@ -1,0 +1,35 @@
+<h1> Automation Algorithm For Excel Finger Data </h1>
+<hr>
+<h2> Internally Defined Functions</h2>
+
+
+<h3>get_sd (path) </h3>
+<p> Params: path - takes in the path that will be used <br>
+	Return: List of subdirectories in the given path<br> <br><br>
+
+	Operation: Looks into the path passed in as a parameter <br>
+	and finds all available subdirectories</p>
+<br><br>
+<h3> createExcelSheet(fileName, destinationPath) </h3>
+<p>Params: fileName - name of the file for the new sheet<br>
+		destinationPath - location of the new file<br><br><br>
+
+Operation: Creates a fully formatted excel sheet for the <br>
+finger data</p>
+<br><br>
+<h3> excelOperations(measurementFilePath, deformityFilePath, subfolder, compiledDataDestination, row) </h3>
+<p> Params: measurementFilePath - location of the file where finger measurements are stored <br>
+			deformityFilePath - location of the table that contains the deformity data<br>
+			subfolder - location of where the data is being stored<br>
+			compiledDataDestination - location of final data file <br>
+			row - nth row on which the new data will be added to the compiled file <br><br><br>
+			
+	Operation: Takes the data from each of the invidual excel sheets, transposes the data <br>
+				and paste it to the nth row of the compiled data file </p>
+<br><br>
+<h3> main() </h3>
+<p> Operation: Searches through the directory of files and loops through all the avaialble <br>
+	excel files </p>
+
+
+		

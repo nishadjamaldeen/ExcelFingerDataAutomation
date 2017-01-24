@@ -1,6 +1,6 @@
 #####################################################################
 #Program Name: Excel Data Automation (for Hand Arthritis Algorithm) #
-#Author: Nishad KeyError                                            #   
+#Author: Nishad Jamaldeen                                           #   
 #Location: eTreatMD Downtown                                        #
 #Date Created: 18 January 2017                                      #   
 #Date Mofified: 19 January 2017                                     #
