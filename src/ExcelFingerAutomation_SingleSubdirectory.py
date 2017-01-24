@@ -1,9 +1,9 @@
 #####################################################################
 #Program Name: Excel Data Automation (for Hand Arthritis Algorithm) #
-#Author: Nishad Jamaldeen                                           #   
+#Author: Nishad KeyError                                            #   
 #Location: eTreatMD Downtown                                        #
-#Date Created: 18 January 2017                                      #   
-#Date Mofified: 19 January 2017                                     #
+#Date Created: 18 January                                           #   
+#Date Mofified: 19 January                                          #
 #Description: Searches through a folder tree for ourput data from   #
 #   the MATLAB algorithm, compiling all avaialible information      #
 #   into a single file for analysis and presentation                #
@@ -11,7 +11,7 @@
 
 
 
-import os
+import os, time
 from os import listdir
 import numpy as np
 import pandas as dp
@@ -77,9 +77,8 @@ def excelOperations(measurementFilePath, deformityFilePath, subfolder, compiledD
         sheetNamesArray_deformity = wb.sheet_names()
         deformityWorkingSheet = wb_deformity.sheet_by_name(sheetNamesArray_deformity[0])
 
-        deformityMatrix = [[deformityWorkingSheet.cell_value(ri,ci) for ci in range(0,1)] for ri in range(0,8)]
-        print(deformityMatrix)
-        print(deformityMatrix[1][0])
+        deformityMatrix = [[deformityWorkingSheet.cell_value(ri,ci) for ci in range(4,5)] for ri in range(1,9)]
+
         subfolderName = ''
         for c in reversed(subfolder):
             if (c == '\\'):
@@ -117,11 +116,11 @@ def excelOperations(measurementFilePath, deformityFilePath, subfolder, compiledD
             data = deformityMatrix[g-50][0]
             writingFile_sheet.write(row+1,g,data)
 
-        writingFile_sheet.write_merge(0,0,2,13,'Index', xlwt.easyxf("align: horiz center"))
-        writingFile_sheet.write_merge(0,0,14,25,'Middle', xlwt.easyxf("align: horiz center"))
-        writingFile_sheet.write_merge(0,0,26,37,'Ring', xlwt.easyxf("align: horiz center"))
-        writingFile_sheet.write_merge(0,0,38,49,'Little', xlwt.easyxf("align: horiz center"))
-        writingFile_sheet.write_merge(0,0,50,58, 'Deformities', xlwt.easyxf("align:horiz center"))
+        writingFile_sheet.write_merge(0,0,2,12,'Index', xlwt.easyxf("align: horiz center"))
+        writingFile_sheet.write_merge(0,0,14,24,'Middle', xlwt.easyxf("align: horiz center"))
+        writingFile_sheet.write_merge(0,0,26,36,'Ring', xlwt.easyxf("align: horiz center"))
+        writingFile_sheet.write_merge(0,0,38,48,'Little', xlwt.easyxf("align: horiz center"))
+        writingFile_sheet.write_merge(0,0,50,57, 'Deformities', xlwt.easyxf("align:horiz center"))
 
         writingFile.save(compiledDataDestination)
         
@@ -131,6 +130,10 @@ def excelOperations(measurementFilePath, deformityFilePath, subfolder, compiledD
     
 
 def main():
+
+    startTime = time.time()
+    print("Processing...\n")
+    
     cPath = os.path.dirname(os.path.abspath(__file__))
     row = 1
     compiledDataDestination = createExcelSheet('dataFinal', cPath)
@@ -146,10 +149,13 @@ def main():
             if files.endswith('fingerMeasurements.xls') or files.endswith('fingerMeasurements.xlsx'):
                 measurement_filePath = str(subfolder) + "\\" + str(files)
                 
-            elif files.endswith('deformity.xls') or files.endswith('deformity.xlsx'):
+            elif files.endswith('diagnosis.xls') or files.endswith('diagnosis.xlsx'):
                 deformity_filePath = str(subfolder) + '\\' + str(files)
 				    
         excelOperations(measurement_filePath, deformity_filePath, subfolder, compiledDataDestination, row)
         row = row+1
+
+    runTime = time.time() - startTime
+    print("\nProcess completed in ", round(runTime,3), " seconds\n")
 
 main()
