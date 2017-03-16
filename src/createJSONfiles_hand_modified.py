@@ -14,7 +14,7 @@ for file in directory:
             else:
                 break
 
-        indicativeNumber = 4
+        indicativeNumber = -4
         
         if name[indicativeNumber] == '1':
             orientation = "up"
